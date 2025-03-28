@@ -4,18 +4,20 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB4omGJ-LPKyvUsgzFckJXW0bkXX4clFdM",
-  authDomain: "devlinks-ded09.firebaseapp.com",
-  projectId: "devlinks-ded09",
-  storageBucket: "devlinks-ded09.firebasestorage.app",
-  messagingSenderId: "103841669574",
-  appId: "1:103841669574:web:63a4a757e10aa565dd12c7",
-  measurementId: "G-LM2J8Q9QJF",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
+console.log("Firebase API Key:", import.meta.env.VITE_FIREBASE_API_KEY);
+
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app)
-const auth = getAuth(app)
-const db = getFirestore(app)
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 export { auth, db, analytics };
